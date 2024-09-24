@@ -27,6 +27,6 @@ export async function getItems(db, collection, getDocs, filters = null) {
 
     } catch (error) {
         console.error('Error searching items', error);
-        return []; // Devolver un array vacío en caso de error
+        return []; 
     }
 }
