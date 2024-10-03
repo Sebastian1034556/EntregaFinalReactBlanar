@@ -10,7 +10,7 @@ export function ItemDetail({ item }) {
         isInCart(item.id) ? updateQuantity({...item,quantity : quantity}) : addItem({...item , quantity : quantity })  
     }
     return (
-        item ? (
+        item && (
             <>
             <div className="flex flex-col items-center max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg max-h-full">
                 <img
@@ -36,8 +36,6 @@ export function ItemDetail({ item }) {
 
             </Link>
             </>
-        ) : (
-            <h1>Item no encontrado</h1>
         )
     );
     

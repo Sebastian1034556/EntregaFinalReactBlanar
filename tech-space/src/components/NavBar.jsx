@@ -23,7 +23,6 @@ export function NavBar() {
             <div className="lg:order-3">
                 <CartWidget />
             </div>
-            
         </nav>
     );
 }

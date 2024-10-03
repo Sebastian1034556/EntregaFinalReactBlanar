@@ -9,9 +9,8 @@ import { SliderComponent } from './components/SliderComponent'
 import { ItemDetailContainer } from './components/ItemDetailContainer'
 import { Checkout } from './components/Checkout'
 
-// Componente Layout para manejar la visibilidad del Slider
 function Layout({ children }) {
-  const location = useLocation();  // Ahora dentro del contexto del Router
+  const location = useLocation();  
 
   return (
     <>

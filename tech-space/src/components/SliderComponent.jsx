@@ -14,7 +14,7 @@ export function SliderComponent({children}){
                     <source src="/videos/slide2.mp4" type="video/mp4" />
                     Tu navegador no soporta la etiqueta de video.
                 </video>
-                <div className="absolute inset-0 bg-black opacity-30 z-10"></div> {/* Overlay */}
+                <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
                 <div className="absolute inset-0 flex items-end justify-center z-20">
                     {children}
                 </div>

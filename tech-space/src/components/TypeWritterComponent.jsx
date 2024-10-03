@@ -7,30 +7,31 @@ export const TypeWriterComponent = () => {
         return array[nextIndex]
     }
 
-    const options = ['Explore', 'Discover', 'Enter the']
+    const options = ['Explora', 'Descubre', 'Compra en']
     const [text, setText] = useState('')
     const [fullText,setFullText] = useState(options[0])
-    const [index, setIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            if (!isDeleting && index < fullText.length) {
-                setText((prevText) => prevText + fullText[index])
-                setIndex((prevIndex) => prevIndex + 1)
-            } else if (isDeleting && index > 0) {
-                setText((prevText) => prevText.slice(0, -1))
-                setIndex((prevIndex) => prevIndex - 1)
-            } else if (index === fullText.length) {
+            if (!isDeleting && text.length < fullText.length) {
+                let nextChar = fullText[text.length]
+                setText(text + nextChar)
+            } 
+            else if (isDeleting && text.length > 0) {
+                setText(text.slice(0,-1))
+            } 
+            else if (text.length === fullText.length) {
                 setIsDeleting(true)
                 setFullText(chooseNextWord(options,fullText))
-            } else if (index === 0) {
+            } 
+            else if (text.length === 0) {
                 setIsDeleting(false)
             }
-        }, isDeleting ? 80 : 150) // Faster deletion, slower typing
+        }, isDeleting ? 80 : 150) 
 
         return () => clearTimeout(timeout)
-    }, [index, isDeleting,fullText])
+    }, [ text, isDeleting,fullText])
 
     return (
         <div className="flex flex-col items-center justify-center text-center">
